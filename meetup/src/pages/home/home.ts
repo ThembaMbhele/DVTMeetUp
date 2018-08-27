@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { GroupsServiceProvider } from '../../providers/groups-service/groups-service';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import { DashboardPage } from '../dashboard/dashboard';
+import { Storage } from '@ionic/storage';
+
 
 interface Category {
   name: string;
@@ -20,7 +22,7 @@ export class HomePage {
   public categories: Category[];
 
   constructor(public navCtrl: NavController, public groups: GroupsServiceProvider,
-              private sqlite: SQLite) {
+              private storage: Storage) {
     this.groups.getCategories().subscribe((response: any) =>
     {
       var categoriess = response.results;

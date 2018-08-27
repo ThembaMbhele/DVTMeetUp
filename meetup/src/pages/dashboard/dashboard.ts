@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GroupsServiceProvider } from '../../providers/groups-service/groups-service';
+import { SettingsPage } from '../settings/settings';
 
 /**
  * Generated class for the DashboardPage page.
@@ -28,6 +29,11 @@ export class DashboardPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardPage');
+  }
+
+  goToSettings()
+  {
+    this.navCtrl.push(SettingsPage);
   }
 
 }
