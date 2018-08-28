@@ -23,13 +23,22 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public groups: GroupsServiceProvider,
               private storage: Storage) {
-    this.groups.getCategories().subscribe((response: any) =>
-    {
-      var categoriess = response.results;
-      this.categories = categoriess;
+      
+      this.navCtrl.setRoot(DashboardPage)
+      // set a key/value
+      //storage.set('name', 'Max');
 
-      this.navCtrl.setRoot(DashboardPage);
-    });
+      // Or to get a key/value pair
+     /* storage.get('default').then((val) => {
+        if(val == null)
+        {
+          storage.set('default', '');
+          this.navCtrl.setRoot(DashboardPage);
+        }
+        else{
+          this.navCtrl.setRoot(DashboardPage)
+        }
+      });*/
   }
 
 }

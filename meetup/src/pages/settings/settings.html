@@ -16,12 +16,17 @@
 
 
 <ion-content padding>
-  <ion-item *ngIf="categories?.length > 0">
-      <ion-label>Default category</ion-label>
-      <ion-select [(ngModel)]="selectedCategory">
-          <ion-option value="{{category?.name}}" *ngFor="let category of categories">{{category?.name}}</ion-option>
-        </ion-select>
-  </ion-item>
-  <button ion-button full>Save</button>
-  
+  <div id="meetUpContent">
+      <div style="text-align: center">
+          <ion-spinner *ngIf="categories?.length <= 0"></ion-spinner>
+      </div>
+      
+      <ion-item *ngIf="categories?.length > 0">
+          <ion-label>Default category</ion-label>
+          <ion-select [(ngModel)]="selectedCategory">
+              <ion-option value="{{category?.id}}" *ngFor="let category of categories">{{category?.name}}</ion-option>
+            </ion-select>
+      </ion-item>
+      <button ion-button full (click)="save()">Save</button>
+  </div>
 </ion-content>

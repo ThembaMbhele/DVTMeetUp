@@ -14,6 +14,7 @@ import { GroupsServiceProvider } from '../providers/groups-service/groups-servic
 
 import { SQLite } from '@ionic-native/sqlite';
 import { IonicStorageModule } from '@ionic/storage';
+import { GlobalvariablesProvider } from '../providers/globalvariables/globalvariables';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,10 @@ import { IonicStorageModule } from '@ionic/storage';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicStorageModule,
+    IonicStorageModule.forRoot({
+      name: '__mydb',
+         driverOrder: ['indexeddb', 'sqlite', 'websql']
+    }),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -40,7 +44,8 @@ import { IonicStorageModule } from '@ionic/storage';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GroupsServiceProvider,
-    SQLite
+    SQLite,
+    GlobalvariablesProvider
   ]
 })
 export class AppModule {}

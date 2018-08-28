@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage';
 
 /*
   Generated class for the GroupsServiceProvider provider.
@@ -14,13 +15,18 @@ export class GroupsServiceProvider {
      to get around CORS issues. The config can be found in the ionic.config.json file */
   private url: string = "/meetup";
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,private storage: Storage) {
     console.log('Hello GroupsServiceProvider Provider');
   }
 
   getCategories()
   {
     return this.http.get(this.url + "/2/categories?key=3f3945471f6c544a7a2577724d4e2e55");
+  }
+
+  findGroupsByLocationAndCategory(location, categoryId)
+  {
+    return this.http.get(this.url + "/find/groups?key=3f3945471f6c544a7a2577724d4e2e55&location=johannesburg&category="+Number(categoryId));
   }
 
   findGroupsByLocation(location)

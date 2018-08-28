@@ -11,8 +11,8 @@
       <img width="100" height="50" src="../assets/imgs/meetuplogo.svg">
     </ion-title>
     <ion-buttons end>
-        <button ion-button icon-only (click)="goToSettings()">
-          <ion-icon name="settings"></ion-icon>
+        <button id="settingsButton" ion-button icon-only (click)="goToSettings()">
+          <ion-icon value name="settings"></ion-icon>
         </button>
       </ion-buttons>
   </ion-navbar>
@@ -25,6 +25,7 @@
       <ion-spinner class="spinner" name="bubbles"></ion-spinner>
   </div>
   <div *ngIf="meetUpGroups?.length > 0">
+    <div style="text-align:center" class="group-name">{{description}}</div>
     <ion-grid>
         <ion-row col-s12 *ngFor="let group of meetUpGroups">
           <ion-col >
