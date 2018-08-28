@@ -29,7 +29,7 @@
     <ion-grid>
         <ion-row col-s12 *ngFor="let group of meetUpGroups">
           <ion-col >
-            <ion-card>
+            <ion-card (click)="groupDetails(group)">
               <img height="300" src="{{group?.key_photo?.photo_link}}"/>
               <ion-card-content>
                 <ion-card-title class="group-name">

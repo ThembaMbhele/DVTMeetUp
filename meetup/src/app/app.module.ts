@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { SettingsPage } from '../pages/settings/settings';
+import { GroupdetailsPage } from '../pages/groupdetails/groupdetails';
 
 import { HttpClientModule } from '@angular/common/http';
 import { GroupsServiceProvider } from '../providers/groups-service/groups-service';
@@ -21,7 +22,8 @@ import { GlobalvariablesProvider } from '../providers/globalvariables/globalvari
     MyApp,
     HomePage,
     DashboardPage,
-    SettingsPage
+    SettingsPage,
+    GroupdetailsPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { GlobalvariablesProvider } from '../providers/globalvariables/globalvari
     MyApp,
     HomePage,
     DashboardPage,
-    SettingsPage
+    SettingsPage,
+    GroupdetailsPage
   ],
   providers: [
     StatusBar,

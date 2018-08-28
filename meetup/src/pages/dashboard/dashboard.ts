@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GroupsServiceProvider } from '../../providers/groups-service/groups-service';
+import { GlobalvariablesProvider } from '../../providers/globalvariables/globalvariables';
 import { SettingsPage } from '../settings/settings';
+import { GroupdetailsPage } from '../groupdetails/groupdetails';
 import { Storage } from '@ionic/storage';
 
 /**
@@ -22,7 +24,8 @@ export class DashboardPage {
   public description: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-    private group: GroupsServiceProvider, private storage: Storage) 
+    private group: GroupsServiceProvider, private storage: Storage,
+    private globalVariables: GlobalvariablesProvider) 
   {
     storage.get('default').then((val) => {
       if(val == null)
@@ -55,6 +58,12 @@ export class DashboardPage {
   goToSettings()
   {
     this.navCtrl.push(SettingsPage);
+  }
+
+  groupDetails(group)
+  {
+    this.globalVariables.setGroup(group);
+    this.navCtrl.push(GroupdetailsPage);
   }
 
 }
