@@ -26,13 +26,13 @@ export class GroupsServiceProvider {
     return this.http.get(this.url + "/2/categories?key="+this.globalVariables.getApiKey());
   }
 
-  findGroupsByLocationAndCategory(location, categoryId)
+  findGroupsByLocationAndCategory(categoryId)
   {
     return this.http.get(this.url + "/find/groups?key="+this.globalVariables.getApiKey()+"&location=" 
                 + this.globalVariables.getLocation() + "&category="+Number(categoryId));
   }
 
-  findGroupsByLocation(location)
+  findGroupsByLocation()
   {
     return this.http.get(this.url + "/find/groups?key="+this.globalVariables.getApiKey() +"&location=" +
     this.globalVariables.getLocation());

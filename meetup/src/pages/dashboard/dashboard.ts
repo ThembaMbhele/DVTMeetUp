@@ -30,7 +30,7 @@ export class DashboardPage {
     storage.get('default').then((val) => {
       if(val == null)
       {
-        this.group.findGroupsByLocation("johannesburg").subscribe((response: any[])=>{
+        this.group.findGroupsByLocation().subscribe((response: any[])=>{
           var meetUpGroups = response;
           this.meetUpGroups = meetUpGroups;
 
@@ -38,7 +38,7 @@ export class DashboardPage {
       }
       else
       {
-        this.group.findGroupsByLocationAndCategory("johannesburg", val).subscribe((response: any[])=>{
+        this.group.findGroupsByLocationAndCategory(val).subscribe((response: any[])=>{
           var meetUpGroups = response
           this.meetUpGroups = meetUpGroups;
 
